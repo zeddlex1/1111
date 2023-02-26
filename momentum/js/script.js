@@ -207,6 +207,7 @@ function getSlideNext() {
             
             getLinkToImageUnsplash();
         } else if (localStorage.getItem('images collection') === 'Flickr API') {
+            body.style.background = localStorage.getItem('backgroundImage');
             getLinkToImageFlickr();
             localStorage.setItem('backgroundImage', body.style.backgroundImage);
         }
