@@ -111,6 +111,8 @@ function setLocalStorage() {
     
     localStorage.setItem('tags', tags.value);     
     showSettings.forEach((item, i) => item.classList.contains('selected') ? localStorage.setItem(`isShow${i}`, true) : localStorage.setItem(`isShow${i}`, false));
+
+    localStorage.setItem('backgroundImage', body.style.backgroundImage)
 }
 
 window.addEventListener('beforeunload', setLocalStorage)
@@ -162,13 +164,9 @@ function getLocalStorage() {
             }
         }
 
-
-    const img = new Image();
-    img.src = `https://raw.githubusercontent.com/zeddlex1/stage1-tasks/assets/images/morning/01.jpg`;
-        img.onload = () => {
-            body.style.backgroundImage = `url('${img.src}')`;
-        }
-
+        if (localStorage.getItem('backgroundImage')) {
+        body.style.backgroundImage = localStorage.getItem('backgroundImage')
+    }
 }
 
 window.addEventListener('load', getLocalStorage);
