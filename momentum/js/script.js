@@ -48,6 +48,10 @@ const blocks = [time, dateShow, greetingContainer, quoteCommon, weather, player,
 
 let lng = 'en';
 
+if (localStorage.getItem('backgroundImage')) {
+        body.style.backgroundImage = localStorage.getItem('backgroundImage')
+    }
+
 function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
@@ -164,9 +168,7 @@ function getLocalStorage() {
             }
         }
 
-        if (localStorage.getItem('backgroundImage')) {
-        body.style.backgroundImage = localStorage.getItem('backgroundImage')
-    }
+        
 }
 
 window.addEventListener('load', getLocalStorage);
