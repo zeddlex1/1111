@@ -183,10 +183,10 @@ function setBg() {
         img.src = `https://raw.githubusercontent.com/zeddlex1/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
         img.onload = () => {
             body.style.backgroundImage = `url('${img.src}')`;
-        };
+        }
     } else if (imagesCollection[1].classList.contains('active')) {
         getLinkToImageUnsplash();
-    } else {
+    } else if (imagesCollection[2].classList.contains('active')) {
         getLinkToImageFlickr();
     }
 
