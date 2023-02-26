@@ -202,7 +202,7 @@ function getSlideNext() {
         } else if (localStorage.getItem('images collection') === 'Unsplash API') {
             getLinkToImageUnsplash();
         } else {
-            getLinkToImageFlickr();
+            setTimeout(getLinkToImageFlickr, 1000);
         }
 }
 
