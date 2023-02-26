@@ -99,10 +99,13 @@ function setLocalStorage() {
     localStorage.setItem('city', city.value);
     localStorage.setItem('language', lng);
     if (imagesCollection[1].classList.contains('active')) {
+        imagesCollection[1].textContent = '';
         localStorage.setItem('images collection', imagesCollection[1].textContent);
     } else if (imagesCollection[2].classList.contains('active')) {
+        imagesCollection[1].textContent = '';
         localStorage.setItem('images collection', imagesCollection[2].textContent);
     } else {
+        imagesCollection[1].textContent = '';
         localStorage.setItem('images collection', imagesCollection[0].textContent);
     }
     
