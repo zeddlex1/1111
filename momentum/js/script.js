@@ -430,9 +430,11 @@ document.addEventListener('click', function (e) {
             showSettings[i].classList.remove('selected');            
           }
             if (showSettings[i].classList.contains('selected')) {
-                blocks[i].style.visibility = 'visible';
+                blocks[i].style.opacity = '1';
+                blocks[i].style.transition = '.6s';
             } else {
-                blocks[i].style.visibility = 'hidden';
+                 blocks[i].style.opacity = '0';
+                blocks[i].style.transition = '.6s';
             }
         }
     }
