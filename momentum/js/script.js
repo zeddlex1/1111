@@ -86,7 +86,7 @@ function getTimeOfDay(lng) {
 
 }
 
-if (lng === 'en') {
+if (lng === 'en' && localStorage.getItem('language') === 'en') {
     name.placeholder = "[Enter name]";
     city.placeholder = "[Enter city]";
 } else {
@@ -466,6 +466,8 @@ function enSettings() {
     document.querySelector('.show li:nth-child(5)').textContent = 'Weather';
     document.querySelector('.show li:nth-child(6)').textContent = 'Player';
     document.querySelector('.show li:nth-child(7)').textContent = 'Links';
+    name.placeholder = "[Enter name]";
+    city.placeholder = "[Enter city]";
 }
 
 function ruSettings() {
@@ -481,4 +483,9 @@ function ruSettings() {
     document.querySelector('.show li:nth-child(5)').textContent = 'Погода';
     document.querySelector('.show li:nth-child(6)').textContent = 'Плеер';
     document.querySelector('.show li:nth-child(7)').textContent = 'Ссылки';
+    name.placeholder = "[Введите имя]";
+    city.placeholder = "[Введите город]";
 }
+
+
+    
