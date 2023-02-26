@@ -194,7 +194,7 @@ function setBg() {
 
 function getSlideNext() {
     if (++randomNum > 20) {
-        randomNum = 1
+        randomNum = 1;
     }
     setBg();
 }
@@ -203,7 +203,7 @@ slideNext.addEventListener('click', getSlideNext);
 
 function getSlidePrev() {
     if (--randomNum < 1) {
-        randomNum = 20
+        randomNum = 20;
     }
     setBg();
 }
