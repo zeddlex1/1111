@@ -196,7 +196,6 @@ function getSlideNext() {
     if (++randomNum > 20) {
         randomNum = 1
     }
-    ;
     setBg();
 }
 
@@ -206,7 +205,6 @@ function getSlidePrev() {
     if (--randomNum < 1) {
         randomNum = 20
     }
-    ;
     setBg();
 }
 
