@@ -162,6 +162,13 @@ function getLocalStorage() {
             }
         }
 
+
+    const img = new Image();
+    img.src = `https://raw.githubusercontent.com/zeddlex1/stage1-tasks/assets/images/morning/01.jpg`;
+        img.onload = () => {
+            body.style.backgroundImage = `url('${img.src}')`;
+        }
+
 }
 
 window.addEventListener('load', getLocalStorage);
@@ -360,6 +367,12 @@ function autoPlaySong() {
 
 
 async function getLinkToImageUnsplash() {
+    
+
+
+
+
+    
     const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tagsChose()}&client_id=wA8Toc25vfpB0tEFnfS_IL1PeqxgL0df2HWn6jkiATw`;
     const res = await fetch(url);
     const data = await res.json();
@@ -370,6 +383,12 @@ async function getLinkToImageUnsplash() {
 }
 
 async function getLinkToImageFlickr() {
+
+
+
+
+
+    
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=cb6e7435db5f98f67d905b588dc2b8af&tags=${tagsChose()}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
