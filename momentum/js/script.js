@@ -148,8 +148,7 @@ function getLocalStorage() {
         } else {
             imagesCollection[2].classList.add('active');
             tags.style.visibility = 'visible';
-            
-            setTimeout(getLinkToImageFlickr, 1000)
+            getLinkToImageFlickr();
         }
     }
 
@@ -199,6 +198,8 @@ function getSlideNext() {
         randomNum = 1;
     }
     setBg();
+    getLinkToImageUnsplash();
+    getLinkToImageFlickr();
 }
 
 slideNext.addEventListener('click', getSlideNext);
@@ -208,6 +209,8 @@ function getSlidePrev() {
         randomNum = 20;
     }
     setBg();
+    getLinkToImageUnsplash();
+    getLinkToImageFlickr();
 }
 
 slidePrev.addEventListener('click', getSlidePrev);
