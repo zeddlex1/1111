@@ -19,6 +19,7 @@ body {
   background: center/cover, rgba(0, 0, 0, 0.5);
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
+  z-index: 10;
 }
 
 .header {
