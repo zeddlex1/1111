@@ -111,8 +111,6 @@ function setLocalStorage() {
     
     localStorage.setItem('tags', tags.value);     
     showSettings.forEach((item, i) => item.classList.contains('selected') ? localStorage.setItem(`isShow${i}`, true) : localStorage.setItem(`isShow${i}`, false));
-
-    localStorage.setItem('backgroundImage', body.style.backgroundImage)
 }
 
 window.addEventListener('beforeunload', setLocalStorage)
@@ -150,7 +148,8 @@ function getLocalStorage() {
         } else {
             imagesCollection[2].classList.add('active');
             tags.style.visibility = 'visible';
-            getLinkToImageFlickr();
+            
+            setTimeout(getLinkToImageFlickr, 1000)
         }
     }
 
@@ -371,11 +370,6 @@ async function getLinkToImageUnsplash() {
 }
 
 async function getLinkToImageFlickr() {
-if (localStorage.getItem('backgroundImage')) {
-        body.style.backgroundImage = localStorage.getItem('backgroundImage')
-    }
-
-    
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=cb6e7435db5f98f67d905b588dc2b8af&tags=${tagsChose()}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
