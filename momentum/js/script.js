@@ -111,6 +111,9 @@ function setLocalStorage() {
     
     localStorage.setItem('tags', tags.value);     
     showSettings.forEach((item, i) => item.classList.contains('selected') ? localStorage.setItem(`isShow${i}`, true) : localStorage.setItem(`isShow${i}`, false));
+
+    localStorage.setItem('backgroundImage', body.style.backgroundImage);
+
 }
 
 window.addEventListener('beforeunload', setLocalStorage)
@@ -197,12 +200,15 @@ function getSlideNext() {
     if (++randomNum > 20) {
         randomNum = 1;
     }
+    
         if (localStorage.getItem('images collection') === 'GitHub') {
             setBg();
         } else if (localStorage.getItem('images collection') === 'Unsplash API') {
+            
             getLinkToImageUnsplash();
         } else if (localStorage.getItem('images collection') === 'Flickr API') {
-            setTimeout(getLinkToImageFlickr, 0);
+            getLinkToImageFlickr();
+            localStorage.setItem('backgroundImage', body.style.backgroundImage);
         }
 }
 
@@ -212,7 +218,13 @@ function getSlidePrev() {
     if (--randomNum < 1) {
         randomNum = 20;
     }
-    setBg();
+    if (localStorage.getItem('images collection') === 'GitHub') {
+            setBg();
+        } else if (localStorage.getItem('images collection') === 'Unsplash API') {
+            getLinkToImageUnsplash();
+        } else if (localStorage.getItem('images collection') === 'Flickr API') {
+            getLinkToImageFlickr();
+        }
 }
 
 slidePrev.addEventListener('click', getSlidePrev);
