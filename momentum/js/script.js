@@ -48,10 +48,6 @@ const blocks = [time, dateShow, greetingContainer, quoteCommon, weather, player,
 
 let lng = 'en';
 
-if (localStorage.getItem('backgroundImage')) {
-        body.style.backgroundImage = localStorage.getItem('backgroundImage')
-    }
-
 function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
@@ -364,15 +360,7 @@ function autoPlaySong() {
     activeSong();
 }
 
-
-
 async function getLinkToImageUnsplash() {
-    
-
-
-
-
-    
     const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tagsChose()}&client_id=wA8Toc25vfpB0tEFnfS_IL1PeqxgL0df2HWn6jkiATw`;
     const res = await fetch(url);
     const data = await res.json();
@@ -383,10 +371,9 @@ async function getLinkToImageUnsplash() {
 }
 
 async function getLinkToImageFlickr() {
-
-
-
-
+if (localStorage.getItem('backgroundImage')) {
+        body.style.backgroundImage = localStorage.getItem('backgroundImage')
+    }
 
     
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=cb6e7435db5f98f67d905b588dc2b8af&tags=${tagsChose()}&extras=url_l&format=json&nojsoncallback=1`;
