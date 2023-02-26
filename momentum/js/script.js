@@ -365,14 +365,20 @@ async function getLinkToImageUnsplash() {
     const url = `https://api.unsplash.com/photos/random?orientation=landscape&query=${tagsChose()}&client_id=wA8Toc25vfpB0tEFnfS_IL1PeqxgL0df2HWn6jkiATw`;
     const res = await fetch(url);
     const data = await res.json();
-    body.style.backgroundImage = `url('${data.urls.regular}')`
+    body.style.backgroundImage = `url('${data.urls.regular}')`;
+     body.style.transition = 'background-image 1s ease-in-out';
+    body.style.background = 'background: center/cover, rgba(0, 0, 0, 0.5)';
+    body.style.backgroundBlendMode = 'background-blend-mode: multiply';    
 }
 
 async function getLinkToImageFlickr() {
     const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=cb6e7435db5f98f67d905b588dc2b8af&tags=${tagsChose()}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(url);
     const data = await res.json();
-    body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l}')`
+    body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l}')`;
+     body.style.transition = 'background-image 1s ease-in-out';
+    body.style.background = 'background: center/cover, rgba(0, 0, 0, 0.5)';
+    body.style.backgroundBlendMode = 'background-blend-mode: multiply';
 }
 
 tags.addEventListener('change', tagsInput);
