@@ -96,6 +96,7 @@ if (lng === 'en') {
 
 function setLocalStorage() {
     localStorage.setItem('name', name.value);
+                lng === 'en' ? city.value = 'Minsk' : city.value = 'Минск';
     localStorage.setItem('city', city.value);
     localStorage.setItem('language', lng);
     if (imagesCollection[1].classList.contains('active')) {
@@ -120,11 +121,7 @@ function getLocalStorage() {
     if (localStorage.getItem('city')) {
         city.value = localStorage.getItem('city');
         getWeather();
-    } else {
-        city.value = 'Minsk';
-        getWeather();
-    }
-
+    } 
     if (localStorage.getItem('language')) {
         lng = localStorage.getItem('language');
         getQuotes();
