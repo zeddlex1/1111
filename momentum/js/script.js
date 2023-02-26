@@ -197,9 +197,13 @@ function getSlideNext() {
     if (++randomNum > 20) {
         randomNum = 1;
     }
-    setBg();
-    getLinkToImageUnsplash();
-    getLinkToImageFlickr();
+        if (localStorage.getItem('images collection') === 'GitHub') {
+            setBg();
+        } else if (localStorage.getItem('images collection') === 'Unsplash API') {
+            getLinkToImageUnsplash();
+        } else {
+            getLinkToImageFlickr();
+        }
 }
 
 slideNext.addEventListener('click', getSlideNext);
