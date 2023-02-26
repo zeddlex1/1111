@@ -202,7 +202,7 @@ function getSlideNext() {
         } else if (localStorage.getItem('images collection') === 'Unsplash API') {
             getLinkToImageUnsplash();
         } else if (localStorage.getItem('images collection') === 'Flickr API') {
-            setTimeout(getLinkToImageFlickr, 500);
+            setTimeout(getLinkToImageFlickr, 0);
         }
 }
 
@@ -213,8 +213,6 @@ function getSlidePrev() {
         randomNum = 20;
     }
     setBg();
-    getLinkToImageUnsplash();
-    getLinkToImageFlickr();
 }
 
 slidePrev.addEventListener('click', getSlidePrev);
