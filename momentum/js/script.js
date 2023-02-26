@@ -366,8 +366,13 @@ async function getLinkToImageUnsplash() {
     const res = await fetch(url);
     const data = await res.json();
 
+const img = new Image();
+        img.src = data.urls.regular;
+        img.onload = () => {
+            body.style.backgroundImage = `url(${data.urls.regular})`;
+        }
     
-    body.style.backgroundImage = `url('${data.urls.regular}')`;
+
      body.style.transition = 'background-image 1s ease-in-out';
     body.style.background = 'background: center/cover, rgba(0, 0, 0, 0.5)';
     body.style.backgroundBlendMode = 'background-blend-mode: multiply';    
@@ -381,13 +386,8 @@ async function getLinkToImageFlickr() {
 const img = new Image();
         img.src = data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l;
         img.onload = () => {
-            body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l}')`;
+            body.style.backgroundImage = `url(${data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l})`;
         }
-
-                   
-
-    
-    //body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(0, data.photos.photo.length - 1)].url_l}')`;
      body.style.transition = 'background-image 1s ease-in-out';
     body.style.background = 'background: center/cover, rgba(0, 0, 0, 0.5)';
     body.style.backgroundBlendMode = 'background-blend-mode: multiply';
