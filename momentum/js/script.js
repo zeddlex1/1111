@@ -48,6 +48,10 @@ const blocks = [time, dateShow, greetingContainer, quoteCommon, weather, player,
 
 let lng = 'en';
 
+if (!(imagesCollection[0].classList.contains('active')) && !(imagesCollection[1].classList.contains('active')) && !(imagesCollection[2].classList.contains('active')))  {
+    Array.from(imagesCollection)[0].classList.add('active');
+}
+
 function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
@@ -193,7 +197,6 @@ function setBg() {
     } else if (imagesCollection[2].classList.contains('active')) {
         getLinkToImageFlickr();
     }
-
 }
 
 function getSlideNext() {
@@ -213,8 +216,9 @@ function getSlidePrev() {
 }
 
 slidePrev.addEventListener('click', getSlidePrev);
-
+            
 setBg();
+
 
 async function getWeather() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${lng}&appid=441a91cfa6142dead65965eed1c0d17e&units=metric`;
